@@ -4,20 +4,38 @@ import {
   SidebarSeparator,
 } from "@/components/sidebar/sidebar-items";
 import { Outlet } from "react-router-dom";
+import styled from "styled-components";
+import { rootDir, routes } from "@/pages/dashboard/_routes.jsx";
+import path from "path-browserify";
+
+const Content = styled.div`
+  position: relative;
+`;
 
 const Index = () => {
+  const sidebarItems = routes.map((route) => {
+    if (route.type === "separator") {
+      return <SidebarSeparator key={route.id} />;
+    } else if (route.type === "route" || route.type === "route-index") {
+      return (
+        <SidebarRoute
+          key={route.id}
+          // exact={route.type === "route-index"}
+          to={path.join(rootDir, route.path)}
+          icon={route.icon}
+        >
+          {route.name}
+        </SidebarRoute>
+      );
+    }
+  });
+
   return (
     <>
-      <Sidebar>
-        <SidebarRoute href="#">Route 1</SidebarRoute>
-        <SidebarRoute href="#">Route 2</SidebarRoute>
-        <SidebarRoute href="#">Route 3</SidebarRoute>
-        <SidebarSeparator />
-        <SidebarRoute href="#">Route 4</SidebarRoute>
-        <SidebarRoute href="#">Route 5</SidebarRoute>
-        <SidebarRoute href="#">Route 6</SidebarRoute>
-      </Sidebar>
-      <Outlet />
+      <Sidebar>{sidebarItems}</Sidebar>
+      <Content>
+        <Outlet />
+      </Content>
     </>
   );
 };

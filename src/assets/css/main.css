@@ -2,3 +2,12 @@
   font-family: SL Logo;
   src: url("@/assets/font/Logo.ttf");
 }
+
+body {
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+}

@@ -1,24 +1,41 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
-export const SidebarItem = styled.a`
-  margin: 9px;
+export const SidebarItem = styled(NavLink)`
+  margin: 6px;
+  padding: 3px 6px;
+  border-radius: 5px;
   width: 85%;
   height: 8%;
   max-height: 50px;
   display: flex;
   text-decoration: none;
-  color: rgb(205, 205, 225);
-  justify-content: center;
+  color: azure;
   align-items: center;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: rgb(52, 52, 57);
+  }
+
+  &.active {
+    background-color: rgb(68, 73, 82);
+  }
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
 
   span {
     font-size: 18px;
-    opacity: 1;
+    margin-left: 20px;
   }
 `;
 
 export const SidebarSeparator = styled.div`
+  margin: 3px 0;
   display: block;
   content: "";
   width: 85%;
@@ -28,13 +45,15 @@ export const SidebarSeparator = styled.div`
 
 export const SidebarRoute = (props) => {
   return (
-    <SidebarItem href={props.href}>
+    <SidebarItem end to={props.to}>
+      {props.icon}
       <span>{props.children}</span>
     </SidebarItem>
   );
 };
 
 SidebarRoute.propTypes = {
-  href: PropTypes.string,
-  children: PropTypes.element,
+  to: PropTypes.string,
+  icon: PropTypes.element,
+  children: PropTypes.any,
 };
