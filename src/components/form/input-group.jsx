@@ -30,16 +30,15 @@ const Input = styled.input`
 `;
 
 export const InputGroup = (props) => {
+  let { icon, ...other } = props;
   return (
     <Group>
-      <Input type={props.type} placeholder={props.placeholder} />
-      {props.icon}
+      <Input {...other} />
+      {icon}
     </Group>
   );
 };
 
 InputGroup.propTypes = {
-  type: PropTypes.string,
-  placeholder: PropTypes.string,
   icon: PropTypes.element,
 };
