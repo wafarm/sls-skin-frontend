@@ -24,12 +24,12 @@ export const SidebarItem = styled(NavLink)`
   }
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   span {
-    font-size: 18px;
+    font-size: 1.125rem;
     margin-left: 20px;
   }
 `;

@@ -30,7 +30,7 @@ const LoginForm = styled.form`
 
 const LoginBanner = styled.span`
   font-family: "SL Logo", serif;
-  font-size: 50px;
+  font-size: 3.125rem;
   color: azure;
 `;
 

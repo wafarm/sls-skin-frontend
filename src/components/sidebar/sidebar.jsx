@@ -38,7 +38,7 @@ const SidebarHeader = styled(SidebarItem)`
 
   span {
     margin-left: 0;
-    font-size: 40px;
+    font-size: 2.5rem;
     font-family:
       SL Logo,
       serif;
