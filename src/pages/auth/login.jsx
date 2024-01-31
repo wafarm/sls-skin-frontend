@@ -2,8 +2,14 @@ import styled from "styled-components";
 import { Card } from "@/components/card/card.jsx";
 import { InputGroup } from "@/components/form/input-group.jsx";
 import { VscAccount, VscLock } from "react-icons/vsc";
-import { ActionButtonPrimary } from "@/components/button/action-button.jsx";
+import {
+  ActionButtonPrimary,
+  ActionButtonSecondary,
+} from "@/components/button/action-button.jsx";
 import { useState } from "react";
+import { rootDir } from "@/pages/auth/_routes.jsx";
+import path from "path-browserify";
+import { useNavigate } from "react-router-dom";
 
 const LoginContainer = styled.div`
   display: flex;
@@ -54,7 +60,17 @@ const LoginOptionGroup = styled.div`
   }
 `;
 
+const ActionButtonGroup = styled.div`
+  display: flex;
+  gap: 10px;
+
+  button {
+    flex-grow: 1;
+  }
+`;
+
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
@@ -74,6 +90,11 @@ export const LoginPage = () => {
   const handleSubmit = (event) => {
     // do nothing currently
     event.preventDefault();
+  };
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    navigate(path.join(rootDir, "register"));
   };
 
   return (
@@ -108,11 +129,16 @@ export const LoginPage = () => {
               />
               记住我
             </label>
-            <a href="#">
+            <a href={path.join(rootDir, "reset")}>
               <span>忘记密码</span>
             </a>
           </LoginOptionGroup>
-          <ActionButtonPrimary>登录</ActionButtonPrimary>
+          <ActionButtonGroup>
+            <ActionButtonPrimary>登录</ActionButtonPrimary>
+            <ActionButtonSecondary onClick={handleRegister}>
+              注册
+            </ActionButtonSecondary>
+          </ActionButtonGroup>
         </LoginForm>
       </LoginCard>
     </LoginContainer>
