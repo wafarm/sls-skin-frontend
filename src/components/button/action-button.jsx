@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Button, ButtonPrimary } from "@/components/button/button.jsx";
+
 import { secondaryColor } from "@/components/button/_color.js";
+import { Button, ButtonPrimary } from "@/components/button/button.jsx";
 
 export const ActionButton = styled(Button)`
   border-radius: 6px;

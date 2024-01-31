@@ -1,12 +1,13 @@
+import path from "path-browserify";
+import { Outlet } from "react-router-dom";
+import styled from "styled-components";
+
 import { Sidebar } from "@/components/sidebar/sidebar";
 import {
   SidebarRoute,
   SidebarSeparator,
 } from "@/components/sidebar/sidebar-items";
-import { Outlet } from "react-router-dom";
-import styled from "styled-components";
 import { rootDir, routes } from "@/pages/dashboard/_routes.jsx";
-import path from "path-browserify";
 
 const Content = styled.div`
   position: relative;

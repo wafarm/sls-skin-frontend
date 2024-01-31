@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
-import background from "@/assets/img/background1.jpg";
 import { createGlobalStyle } from "styled-components";
+
+import background from "@/assets/img/background1.jpg";
 
 const AuthStyle = createGlobalStyle`
     body {

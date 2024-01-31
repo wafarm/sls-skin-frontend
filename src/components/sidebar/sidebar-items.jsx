@@ -1,6 +1,6 @@
-import styled from "styled-components";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 export const SidebarItem = styled(NavLink)`
   margin: 6px;

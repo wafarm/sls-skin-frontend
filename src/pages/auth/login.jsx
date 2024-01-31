@@ -1,14 +1,15 @@
-import styled from "styled-components";
-import { InputGroup } from "@/components/form/input-group.jsx";
+import path from "path-browserify";
+import { useState } from "react";
 import { VscAccount, VscLock } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
 import {
   ActionButtonPrimary,
   ActionButtonSecondary,
 } from "@/components/button/action-button.jsx";
-import { useState } from "react";
+import { InputGroup } from "@/components/form/input-group.jsx";
 import { rootDir } from "@/pages/auth/_routes.jsx";
-import path from "path-browserify";
-import { useNavigate } from "react-router-dom";
 import { AuthContainer, AuthForm, AuthHint } from "@/pages/auth/common.jsx";
 
 const LoginOptionGroup = styled.div`

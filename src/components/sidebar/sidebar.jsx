@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
+
 import {
   SidebarItem,
   SidebarSeparator,
 } from "@/components/sidebar/sidebar-items";
-import PropTypes from "prop-types";
 
 const SidebarBlock = styled.div`
   width: 20%;
