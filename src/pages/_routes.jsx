@@ -11,6 +11,7 @@ import {
 } from "@/pages/auth/_routes.jsx";
 import path from "path-browserify";
 import { Auth } from "@/pages/auth/index.jsx";
+import { ErrorPage } from "@/pages/error-page.jsx";
 
 const dashboardRoutes = generateRoutes(_dashboardRoutes, _dashboardRoot);
 const authRoutes = generateRoutes(_authRoutes, _authRoot);
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/dashboard",
