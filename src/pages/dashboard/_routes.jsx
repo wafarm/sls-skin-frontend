@@ -1,4 +1,4 @@
-import { CgHomeAlt } from "react-icons/cg";
+import { VscHome } from "react-icons/vsc";
 
 import { UserCenter } from "@/pages/dashboard/user-center.jsx";
 
@@ -10,7 +10,7 @@ export const routes = [
     name: "Home",
     id: "index",
     path: "",
-    icon: <CgHomeAlt />,
+    icon: <VscHome />,
     element: <UserCenter />,
   },
 ];

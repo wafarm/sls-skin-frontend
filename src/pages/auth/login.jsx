@@ -92,7 +92,7 @@ export const LoginPage = () => {
               type="checkbox"
               onChange={handleCheckChange}
             />
-            记住我
+            记住密码
           </label>
           <a href={path.join(rootDir, "reset")}>
             <span>忘记密码</span>
