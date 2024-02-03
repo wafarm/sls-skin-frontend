@@ -40,7 +40,7 @@ export const RegisterPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const checkEmail = (email) => {
-    return email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/);
+    return email.match(/^(?=.{1,254}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
   };
 
   const checkQQ = (qq) => {
