@@ -40,11 +40,13 @@ export const RegisterPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const checkEmail = (email) => {
-    return email.match(/^(?=.{1,254}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/);
+    return email.match(
+      /^(?=.{1,254}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+    );
   };
 
   const checkQQ = (qq) => {
-    return qq.match(/^\d*$/);
+    return qq.match(/^\d{5,20}$/);
   };
 
   const checkPasswordStrength = (password) => {
@@ -55,19 +57,24 @@ export const RegisterPage = () => {
     return password === repeatPassword;
   };
 
+  const checkInviteCode = (inviteCode) => {
+    return inviteCode.length === 6;
+  };
+
+  const checkVerificationCode = (verificationCode) => {
+    return verificationCode.length === 6;
+  };
+
   const checkInput = () => {
     return (
       checkEmail(inputs.email) &&
       checkQQ(inputs.qq) &&
-      inputs.qq !== "" &&
       checkPasswordStrength(inputs.password) &&
       checkPassword(inputs.password, inputs.repeatPassword) &&
-      inputs.inviteCode !== "" &&
-      inputs.verificationCode !== ""
+      checkInviteCode(inputs.inviteCode) &&
+      checkVerificationCode(inputs.verificationCode)
     );
   };
-
-  const hasError = !checkInput();
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -82,7 +89,7 @@ export const RegisterPage = () => {
       }
     } else if (name === "qq") {
       // allow only numbers in qq field
-      if (!checkQQ(value)) {
+      if (!value.match(/^\d*$/)) {
         return;
       }
     } else if (name === "password") {
@@ -97,7 +104,20 @@ export const RegisterPage = () => {
       } else {
         setErrorMessage("");
       }
+    } else if (name === "inviteCode") {
+      if (!checkInviteCode(value)) {
+        setErrorMessage("邀请码必须为 6 位");
+      } else {
+        setErrorMessage("");
+      }
+    } else if (name === "") {
+      if (!checkVerificationCode(value)) {
+        setErrorMessage("验证码码必须为 6 位");
+      } else {
+        setErrorMessage("");
+      }
     } else {
+      // Should never execute
       setErrorMessage("");
     }
 
@@ -107,7 +127,7 @@ export const RegisterPage = () => {
   const handleSubmit = (event) => {
     // do nothing currently
     event.preventDefault();
-    if (hasError) {
+    if (!checkInput()) {
       setErrorMessage("一个或多个输入不正确");
     } else {
       // submit login form
