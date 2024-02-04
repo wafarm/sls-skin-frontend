@@ -1,8 +1,33 @@
-# React + Vite
+# SLS Skin Server Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the repository of the frontend of the SLS Skin Server. Here holds the source code of the frontend we use.
 
-Currently, two official plugins are available:
+Note that this is **not** an open source project. We only provide the source code. All rights are reserved.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+We use node.js and yarn as our toolchain. If you want to build or develop, make sure to have them installed.
+
+## Build
+
+```bash
+yarn build
+```
+
+## Develop
+
+Getting ready for developing
+
+```bash
+yarn
+```
+
+Starting a dev server (default port is `3000`)
+
+```bash
+yarn dev
+```
+
+## Contribute
+
+Simply clone the project and follow the instructions in the develop section to set up the project.
+
+Your code must pass the eslint and prettier checks. Run `yarn lint` before you make a commit.
