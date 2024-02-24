@@ -8,6 +8,7 @@ import {
 } from "react-icons/vsc";
 import styled from "styled-components";
 
+import { callRegister } from "@/api/auth.js";
 import {
   ActionButtonPrimary,
   ActionButtonSecondary,
@@ -124,13 +125,14 @@ export const RegisterPage = () => {
     setInputs({ ...inputs, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // do nothing currently
     event.preventDefault();
     if (!checkInput()) {
       setErrorMessage("一个或多个输入不正确");
     } else {
-      // submit login form
+      const response = await callRegister(inputs);
+      console.log(response);
     }
   };
 
