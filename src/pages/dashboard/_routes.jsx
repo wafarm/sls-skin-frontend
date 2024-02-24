@@ -7,7 +7,7 @@ export const rootDir = "/dashboard";
 export const routes = [
   {
     type: "route-index",
-    name: "Home",
+    name: "主页",
     id: "index",
     path: "",
     icon: <VscHome />,
