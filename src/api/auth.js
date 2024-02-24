@@ -2,7 +2,7 @@ import { badRequest, jsonResponse, sendJsonPost } from "@/api/common.js";
 
 export const callRegister = async (payload) => {
   const response = await sendJsonPost("/starlight/register", {
-    qq: payload.qq,
+    qq: parseInt(payload.qq),
     email: payload.email,
     emailVerifyCode: payload.verificationCode,
     password: payload.password,
